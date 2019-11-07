@@ -3,7 +3,7 @@ package coursera.Algorithmic_Toolbox.week3;
 import java.util.Scanner;
 
 public class LargestNumber {
-    private static String largestNumber(String[] a) {
+    public static String largestNumber(String[] a) {
         int numbersUsed = 0;
         StringBuilder result = new StringBuilder();
         while (numbersUsed < a.length) {
@@ -27,14 +27,8 @@ public class LargestNumber {
     private static boolean isGreaterOrEqual(String a, String b) {
         if (a.length() == b.length()) {
             return Integer.parseInt(a) < Integer.parseInt(b);
-        } else if (a.length() < b.length()) {
-            int diff = b.length() - a.length();
-            String temp = a + b.substring(0, diff);
-            return Integer.parseInt(temp) < Integer.parseInt(b);
         } else {
-            int diff = a.length() - b.length();
-            String temp = b + a.substring(0, diff);
-            return Integer.parseInt(a) < Integer.parseInt(temp);
+            return Integer.parseInt(a + b) < Integer.parseInt(b + a);
         }
     }
 
