@@ -1,6 +1,6 @@
 package coursera.Algorithmic_Toolbox.week4;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Inversions {
 
@@ -12,8 +12,25 @@ public class Inversions {
         int ave = (left + right) / 2;
         numberOfInversions += getNumberOfInversions(a, b, left, ave);
         numberOfInversions += getNumberOfInversions(a, b, ave, right);
-        //write your code here
+        numberOfInversions += merge(a, left, ave, right);
         return numberOfInversions;
+    }
+
+    private static long merge(int[] a, int left, int ave, int right) {
+        long inversions = 0;
+        for (int i = left; i < ave; i++) {
+            int empty = i;
+            int move = a[i];
+            for (int j = ave; j < right; j++) {
+                if (move > a[j]) {
+                    a[empty] = a[j];
+                    empty = j;
+                    a[empty] = move;
+                    inversions++;
+                }
+            }
+        }
+        return inversions;
     }
 
     public static void main(String[] args) {
