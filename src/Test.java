@@ -1,14 +1,22 @@
 import codechef.aug18.Balsa;
 import hackerearth.PicuBank;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.Random;
 
 public class Test {
     public static void main(String[] args) {
+        BigDecimal b = new BigDecimal("200");
+        System.out.println(b);
+        System.out.println(b.scale());
+        b = b.stripTrailingZeros();
+        System.out.println(b);
+        b = b.setScale(0, RoundingMode.UNNECESSARY);
+        System.out.println(b);
         //testPicuBank();
         //testBalsa();
-        System.out.println("abc" + null);
     }
 
     public static void testBalsa() {
